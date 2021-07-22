@@ -1,3 +1,11 @@
+@keyframes slide {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
 .subscribeButton {
   width: 260px;
   height: 4rem;
@@ -13,6 +21,9 @@
   justify-content: center;
 
   transition: filter 0.2s;
+
+  animation: slide 1s;
+  animation-delay: 2s;
 
   &:hover {
     filter: brightness(0.8)

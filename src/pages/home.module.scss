@@ -1,3 +1,19 @@
+@keyframes slide {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideReact {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
 .contentContainer {
   max-width: 1120px;
   margin: 0 auto;
@@ -7,6 +23,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  img {
+    animation: slide 1.5s;
+  }
 }
 
 .hero {
@@ -25,6 +45,7 @@
 
     span {
       color: var(--cyan-500);
+      animation: slideReact 3s;
     }
   }
   p {

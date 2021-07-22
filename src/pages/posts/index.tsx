@@ -5,7 +5,6 @@ import Prismic from '@prismicio/client';
 import { getPrismicClient } from '../../services/prismic';
 import { RichText } from 'prismic-dom';
 import styles from './styles.module.scss';
-import { getSession } from 'next-auth/client';
 
 type Post = {
   slug: string;

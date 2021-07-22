@@ -1,3 +1,13 @@
+@keyframes slideReact {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  } to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .container {
   max-width: 1120px;
   margin: 0 auto;
@@ -9,6 +19,8 @@
 .posts {
   max-width: 720px;
   margin: 5rem auto 0;
+
+  animation: slideReact 2s;
 
   a {
     display: block;

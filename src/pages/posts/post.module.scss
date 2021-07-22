@@ -1,9 +1,27 @@
+@keyframes slideReact {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  } to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subs {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
 .container {
   max-width: 1120px;
   margin: 0 auto;
 
   //espaçamento menor caso a largura seja menor que max-width
   padding: 0 2rem;
+
+  animation: slideReact 2s;
 }
 
 .post {
@@ -61,8 +79,11 @@
     color: var(--yellow-500);
     margin-left: 0.5rem;
 
+    animation: subs 1.5s infinite;
+
     &:hover {
       text-decoration: underline;
+      animation: none;
     }
   }
 
