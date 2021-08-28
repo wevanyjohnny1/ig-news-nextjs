@@ -1,0 +1,61 @@
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.posts {
+  max-width: 1120px;
+  margin: 5rem auto 0;
+
+  a {
+    display: flex;
+    align-items: center;
+
+    & + a {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--shape);
+    }
+
+    strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      line-height: 2rem;
+
+      transition: color 0.3s;
+    }
+
+    p {
+      color: var(--gray);
+      margin-top: 0.5rem;
+      line-height: 1.625rem;
+    }
+
+    &:hover strong {
+      color: var(--orange);
+    }
+  }
+
+  .timeCircle {
+    display: flex;
+    width: 73px;
+    height: 74px;
+    background-color: var(--shape);
+    border-radius: 50%;
+
+    min-width: 73px;
+    min-height: 74px;
+
+    margin-right: 2rem;
+
+    text-align: center;
+    align-items: center;
+
+    time {
+      font-size: 1rem;
+      color: var(--white);
+    }
+  }
+}

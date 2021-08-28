@@ -1,75 +1,208 @@
-.headerContainer {
-  height: 5rem;
-  border-bottom: 1px solid var(--gray-800);
+@keyframes arrowAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
 }
 
-@keyframes slide {
+@keyframes linkLeft {
   from {
     opacity: 0;
-    width: 0%;
-  } to {
-    opacity: 1;
-    width: 100%;
+    transform: translateX(-100%);
   }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.headerContainer {
+  height: 80px;
+  border-bottom: 1px solid var(--shape);
 }
 
 .headerContent {
-  max-width: 1120px;
-  height: 5rem;
+  display: flex;
+  max-width: 1600px;
+  height: 80px;
   margin: 0 auto;
   padding: 0 2rem;
-
-  display: flex;
+  justify-content: space-between;
   align-items: center;
 
-  nav {
-    margin-left: 5rem;
-    height: 5rem;
-
-    a {
-      display: inline-block;
-      position: relative;
-      padding: 0 0.5rem;
-      height: 5rem;
-      line-height: 5rem;
-      color: var(--gray-300);
-  
-      transition: color 0.2s;
-
-      & + a {
-        margin-left: 2rem;
-      }
-  
-      &:hover {
-        color: var(--white);
-      }
-  
-      &.active {
-        color: var(--white);
-        font-weight: bold;
-      }
-  
-      &.active::after {
-        content: '';
-        height: 3px;
-        border-radius: 3px 3px 0 0;
-        width: 100%;
-        position: absolute;
-        animation: slide 1s;
-        bottom: 1px;
-        left: 0;
-        background: var(--yellow-500);
-      }
-  }
-  }
-  
   button {
-    margin-left: auto;
+    background-color: transparent;
+    border: 0;
+  }
+}
+
+@keyframes logoTextIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes logoImageIn {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+
+@keyframes logoTextOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes logoImageOut {
+  0% {
+    transform: rotate(-90deg);
+  }
+  50% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.logoBox {
+  .logo {
+    display: flex;
+
+    transition: transform 1s;
+    &:hover {
+      .logoImage {
+        animation: logoImageIn 1s;
+        animation-fill-mode: forwards;
+      }
+      .logoTextBox {
+        transition: opacity 1s;
+        opacity: 1;
+        animation: logoTextIn 1s ease-in-out;
+      }
+    }
+
+    .logoTextBox {
+      display: table-column;
+      padding: 1rem;
+
+      color: var(--gray);
+      opacity: 0;
+
+      animation: logoTextOut 10s;
+    }
+
+    .logoImage {
+      display: flex;
+      animation: logoImageOut 10s;
+    }
+  }
+}
+
+.menuHolder {
+  width: 36px;
+  height: 26px;
+
+  .line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--orange);
+    margin: 8px;
   }
 
-  img {
-    &:hover {
-      cursor: pointer;
-    }
+  &:hover {
+    animation: glow 1s ease-in-out infinite;
+  }
+}
+
+.modalContent {
+  text-align: center;
+  margin: 20px;
+}
+
+.modalLink {
+  font-size: 3rem;
+  margin: 10px;
+
+  color: var(--gray);
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--orange);
+    animation: glow 1s ease-in-out infinite;
+  }
+}
+
+.active {
+  font-size: 3rem;
+  margin: 10px;
+  color: var(--orange);
+}
+
+.titleContent {
+  top: -20px;
+  border-bottom: 1px solid var(--shape);
+}
+
+.modalTitle {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 60px;
+
+  .arrow {
+    margin-top: 10px;
+    font-size: 30px;
+    opacity: 0;
+
+    animation: arrowAnimation 3s infinite;
+    animation-delay: 1s;
+  }
+
+  .modalText {
+    color: var(--white) !important;
   }
 }
