@@ -4,7 +4,7 @@ import Prismic from "@prismicio/client";
 import Link from 'next/link';
 import { getPrismicClient } from "../../services/prismic";
 import { RichText } from "prismic-dom";
-import {server} from '../../config';
+// import {server} from '../../config';
 import styles from "./styles.module.scss";
 
 type Post = {
@@ -29,7 +29,7 @@ export default function Blog({ posts }: PostsProps) {
         <div className={styles.posts}>
           {posts.map(post => (
             <Link href={`/blog/${post.slug}`}>
-              <a key={post.slug} href="">
+              <a key={post.slug}>
                 <div className={styles.timeCircle}>
                   <time>{post.updatedAt}</time>
                 </div>
@@ -51,7 +51,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient();
 
   const response = await prismic.query(
-    [Prismic.predicates.at("document.type", `${server}/post`)],
+    [Prismic.predicates.at("document.type", 'post')],
     {
       fetch: ["post.title", "post.content"],
       pageSize: 10,
