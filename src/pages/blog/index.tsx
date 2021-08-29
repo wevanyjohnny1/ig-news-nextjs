@@ -4,6 +4,7 @@ import Prismic from "@prismicio/client";
 import Link from 'next/link';
 import { getPrismicClient } from "../../services/prismic";
 import { RichText } from "prismic-dom";
+import {server} from '../../config';
 import styles from "./styles.module.scss";
 
 type Post = {
@@ -50,10 +51,10 @@ export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient();
 
   const response = await prismic.query(
-    [Prismic.predicates.at("document.type", "/post")],
+    [Prismic.predicates.at("document.type", `${server}/post`)],
     {
       fetch: ["post.title", "post.content"],
-      pageSize: 100,
+      pageSize: 10,
     }
   );
 
