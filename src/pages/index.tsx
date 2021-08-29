@@ -1,5 +1,6 @@
 import Head from "next/head";
 import type { NextPage } from "next";
+import styles from './styles.module.scss';
 
 const Home: NextPage = () => {
   return (
@@ -7,7 +8,10 @@ const Home: NextPage = () => {
       <Head>
         <title>Página principal | JWD</title>
       </Head>
-      <h1>Minha namorada é a mais gotosa do mundo</h1>
+      <div className={styles.presentationBox}>
+        <h1>Olá, meu nome é Johnny.</h1>
+        <p className={styles.subtitle}>Bem vindo ao meu site!</p>
+      </div>
     </>
   );
 };
